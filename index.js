@@ -413,12 +413,12 @@ function checkScroll() {
 
 function makeScreenInOtherDevices() {
   // console.log("makeScreenInOtherDevices ", document.fullscreenEnabled);
-  const container = document.getElementById("gameContainer");
+  // const container = document.getElementById("gameContainer");
   if (!document.fullscreenElement) {
-    container.requestFullscreen().catch((err) => {
-      console.error(`Error attempting to enable fullscreen: ${err.message}`);
-    });
-    // document.documentElement.requestFullscreen();
+    // container.requestFullscreen().catch((err) => {
+    //   console.error(`Error attempting to enable fullscreen: ${err.message}`);
+    // });
+    document.documentElement.requestFullscreen();
     hideSwipeGIF();
     isAllowShowSwipe = false;
     isAllowedToFullScreenInOtherDevices = false;
@@ -631,11 +631,12 @@ if (isDesktop()) {
 
     btn.addEventListener("click", () => {
       if (!document.fullscreenElement) {
-        container.requestFullscreen().catch((err) => {
-          console.error(
-            `Error attempting to enable fullscreen: ${err.message}`
-          );
-        });
+        // container.requestFullscreen().catch((err) => {
+        //   console.error(
+        //     `Error attempting to enable fullscreen: ${err.message}`
+        //   );
+        // });
+        document.documentElement.requestFullscreen();
         btn.textContent = "🡼";
       } else {
         document.exitFullscreen();
